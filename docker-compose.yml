@@ -36,6 +36,20 @@ services:
     networks:
       - blog
 
+  node:
+    profiles: ["styles"]
+    build:
+      context: .
+      dockerfile: docker/node/Dockerfile
+    container_name: ab-blog-node
+    working_dir: /app
+    volumes:
+      - ./scss:/app/scss
+      - ./public/css:/app/public/css
+    command: sass --watch --style=expanded --no-source-map /app/scss/main.scss:/app/public/css/main.css
+    networks:
+      - blog
+
   mysql:
     image: mysql:8.4
     container_name: ab-blog-mysql

@@ -1,0 +1,60 @@
+@use 'variables' as *;
+
+@media (max-width: $bp-md) {
+    .page-title {
+        font-size: 1.5rem;
+    }
+
+    .category-block {
+        padding: $space-4;
+    }
+
+    .article {
+        padding: $space-5 $space-4;
+
+        &__title {
+            font-size: 1.5rem;
+        }
+    }
+
+    .site-header__inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: $space-2;
+    }
+
+    .article-grid--list {
+        .article-card {
+            flex-direction: column;
+        }
+
+        .article-card__media {
+            flex-basis: auto;
+            height: 200px;
+
+            img,
+            .article-card__placeholder {
+                position: static;
+                height: 200px;
+            }
+        }
+    }
+}
+
+@media (max-width: $bp-sm) {
+    .article-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .article-card__media img {
+        height: 200px;
+    }
+
+    .pagination {
+        justify-content: center;
+    }
+
+    .sort-bar {
+        flex-wrap: wrap;
+    }
+}
